@@ -1,0 +1,743 @@
+<html>
+  <head>
+  </head>
+  <body>
+  <svg id="svgfilters" aria-hidden="true" style="position: absolute; width: 0; height: 0; overflow: hidden;" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+      <defs>
+        <filter id="underglazer" x="-10%" y="-10%" width="120%" height="120%" filterUnits="objectBoundingBox" primitiveUnits="userSpaceOnUse" color-interpolation-filters="linearRGB">
+    <feColorMatrix type="matrix" values=".33 .33 .33 0 0
+              .33 .33 .33 0 0
+              .33 .33 .33 0 0
+              0 0 0 1 0" in="SourceGraphic" result="colormatrix"/>
+    <feComponentTransfer in="colormatrix" result="componentTransfer">
+          <feFuncR type="table" tableValues="0.3 0.9 0.9"/>
+      <feFuncG type="table" tableValues="0.4 0.3 0.5"/>
+      <feFuncB type="table" tableValues="0.9 0.6 0.3"/>
+      <feFuncA type="table" tableValues="0 1"/>
+      </feComponentTransfer>
+    <feBlend mode="soft-light" in="componentTransfer" in2="SourceGraphic" result="blend"/>
+  </filter>
+      </defs>
+  </svg>  
+  <header>
+  </header>
+  <main>
+<!--  INCLUSIVE USER PERSONA  -->
+  <article id="userPersona1" class="personaCard userCard" itemscope itemtype ="https://schema.org/PeopleAudience">
+    <header>
+      <figure itemprop="image">
+        <img src="https://assets.codepen.io/6787549/internal/avatars/users/default.png" alt="Image of User Name Persona"/>
+        <figcaption>
+        </figcaption>
+      </figure>
+     <details class="personal" open>
+       <summary><h2>Personal</h2></summary>
+      <details class="description" open>
+        <summary>
+          <h1 class="personaName" itemprop="disambiguatingDescription">User Name</h1>
+        </summary>
+        <div>
+          <h3>Title: Job Title</h3>
+          <blockquote class="personaDescription" itemprop="description">
+        User Persona Description At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat.
+          </blockquote>
+        </div>
+      </details>
+     </details>
+      <details class="tier" open>
+        <summary>
+          <h3>Persona Tier</h3>
+        </summary>
+          <h4 class="tierNumber">1</h4>
+      </details>
+    </header>
+    <section class="service">
+      <details class="journeyList">
+        <summary>
+          <h2><span>Service List</span> </h2>
+          <div>
+            <details class="serviceJourney" open>
+            <summary>
+              <h2 class="serviceName" itemprop="subjectOf" itemscope itemtype="http://schema.org/Service" itemprop="name">Service Name</h2>
+            </summary>
+              <details class="drivers">
+                <summary>
+                  <h2>Drivers</h2>
+                </summary>
+                <div>
+                  <details class="goals" open>
+                    <summary><h3>Goals</h3></summary>
+                    <ul>
+                      <li>A Hypothetical User Persona goals help define a research subject group</li>
+                      <li>Assessment Persona goals are based on the affinity data from inital research</li>
+                      <li>Experimental Persona goals are selected to define an experiment subject group</li>
+                      <li>Analysis Persona goals are metrics based off the experiment data and associated through affinity mapping</li>
+                    </ul>
+                  </details>
+                  <details class="values" open>
+                    <summary><h3>Values</h3></summary>
+                    <ul>
+                      <li>item</li>
+                      <li>item</li>
+                      <li>item</li>
+                    </ul>
+                  </details>
+                  <details class="challenges" open>
+                    <summary><h3>Challenges</h3></summary>
+                    <ul>
+                      <li>item</li>
+                      <li>item</li>
+                      <li>item</li>
+                    </ul>
+                  </details>
+                  <details class="privileges" open>
+                    <summary><h3>Privileges</h3></summary>
+                    <ul>
+                      <li>item</li>
+                      <li>item</li>
+                      <li>item</li>
+                    </ul>
+                  </details>
+                  <details class="impacts" open>
+                    <summary><h3>Impacts</h3></summary>
+                    <ul>
+                      <li>item</li>
+                      <li>item</li>
+                      <li>item</li>
+                    </ul>
+                  </details>
+                  <details class="needs" open>
+                    <summary><h3>Needs</h3></summary>
+                    <ul>
+                      <li>item</li>
+                      <li>item</li>
+                      <li>item</li>
+                    </ul>
+                  </details>
+                </div> 
+              </details>
+              <details class="navigators">
+                  <summary><h2>Navigators</h2></summary>
+                  <div>
+                    <details class="identity">
+                      <summary><h3>Social Identity</h3></summary>
+                      <ul>
+                        <li>
+                          <details>
+                            <summary><i class="fas fa-transgender-alt"></i><span>Transgender</span></summary>
+                            <label>Importance</label>
+                          <meter class="satisfaction" value="5" min="0" max="10" high="7" low="3" optimum="10"></meter>
+                          </details>
+                        </li>
+                        <li>
+                          <details>
+                            <summary><i class="fas fa-pray"></i><span>Spiritual</span></summary>
+                          </details>
+                        </li>
+                        <li>
+                          <details>
+                            <summary><i class="fas fa-flag-usa"></i><span>Nationalist</span></summary>
+                          </details>
+                        </li>
+                      </ul>
+                    </details>
+                    <details class="motivation">
+                      <summary><h3>Motivation</h3></summary>
+                      <details class="intrinsic" open>
+                        <summary><h4>Intrinsic</h4></summary>
+                        <ul>
+                        <li>
+                          <details>
+                            <summary><i class="fas fa-award"></i></summary>
+                          </details>
+                        </li>
+                      </ul>
+                      </details>
+                      <details class="extrinsic" open>
+                        <summary><h4>Extrinsic</h4></summary>
+                        <ul>
+                        <li>
+                          <details>
+                            <summary><i class="fas fa-project-diagram"></i></summary>
+                          </details>
+                        </li>
+                      </ul>
+                      </details>
+                      <details class="disruptor" open>
+                        <summary><h4>Disruptor</h4></summary>
+                        <ul>
+                        <li>
+                          <details>
+                            <summary><i class="fas fa-tired"></i></summary>
+                          </details>
+                        </li>
+                        <li>
+                          <details>
+                            <summary><i class="fas fa-bullhorn"></i></summary>
+                          </details>
+                        </li>
+                      </ul>
+                      </details>
+                    </details>
+                    <details class="behavior">
+                        <summary><h3>Behavior</h3></summary>
+                      <details class="navigation" open>
+                        <summary><h4>Navigation</h4></summary>
+                        <ul>
+                        <li>
+                          <details>
+                            <summary><i class="fas fa-chess"></i></summary>
+                          </details>
+                        </li>
+                      </ul>
+                      </details>
+                      <details class="interaction" open>
+                        <summary><h4>Interaction</h4></summary>
+                        <ul>
+                        <li>
+                          <details>
+                            <summary><i class="fas fa-project-diagram"></i></summary>
+                          </details>
+                        </li>
+                      </ul>
+                      </details>
+                    </details>
+                    <details class="accessibility">
+                        <summary><h3>Accessibility</h3></summary>
+                      <ul>
+                        <li>
+                          <details>
+                            <summary><i class="fas fa-universal-access"></i></summary>
+                          </details>
+                        </li>
+                      </ul>
+                    </details>
+                    <details class="economics">
+                        <summary><h3>Economic Status</h3></summary>
+                      <ul>
+                        <li>
+                          <details>
+                            <summary><i class="fas fa-city"></i></summary>
+                          </details>
+                        </li>
+                        <li>
+                          <details>
+                            <summary><i class="fas fa-bus-alt"></i></summary>
+                          </details>
+                        </li>
+                        <li>
+                          <details>
+                            <summary><i class="fas fa-dollar-sign"></i><i class="fas fa-dollar-sign"></i><i class="fas fa-dollar-sign"></i></summary>
+                          </details>
+                        </li>
+                      </ul>
+                    </details>
+                  </div>
+                </details>
+              <section class="journey">
+                <h3>User Journey Map 1</h3>
+                <svg class="journeyMap"></svg>
+                <details class="phase" open>
+                  <summary><h3>Phase Name</h3></summary>
+                  <section class="steps">
+                    <details class="action pain" itemprop="potentialAction">
+                    <summary>
+                      <h4>Action Name</h4>
+                      <label>Satisfaction</label>
+                      <meter class="satisfaction" value="5" min="0" max="10" high="7" low="3" optimum="10"></meter>  
+                    </summary>
+                    <blockquote>Action Description</blockquote>
+                    <details class="touchpoints">
+                      <summary><h5>Touchpoints</h5></summary>
+                    </details>
+                    <details class="thoughts">
+                      <summary><h5>Thoughts</h5></summary>
+                    </details>
+                    <details class="feelings">
+                      <summary><h5>Feelings</h5></summary>
+                    </details>
+                  </details>
+                  </section>
+                  <section class="reflections">
+                    <details class="opportunities" itemprop="potentialAction">
+                      <summary><h4>Opportunities</h4></summary>
+                    </details>
+                    <details class="interventions" itemprop="potentialAction">
+                    <summary><h4>Potential Interventions</h4></summary>
+                  </details>
+                  </section>
+                </details>
+                <details class="phase" open>
+                  <summary><h3>Phase Name</h3></summary>
+                  <section class="steps">
+                    <details class="action pain" itemprop="potentialAction">
+                      <summary>
+                        <h4>Action Name</h4>
+                        <label>Satisfaction</label>
+                        <meter class="satisfaction" value="2" min="0" max="10" high="7" low="3" optimum="10"></meter>  
+                      </summary>
+                      <blockquote>Action Description</blockquote>
+                      <details class="touchpoints">
+                        <summary><h5>Touchpoints</h5></summary>
+                        <ul>
+                          <li>List Item</li>
+                          <li>List Item</li>
+                          <li>List Item</li>
+                        </ul>
+                      </details>
+                      <details class="thoughts">
+                        <summary><h5>Thoughts</h5></summary>
+                        <ul>
+                          <li>List Item</li>
+                          <li>List Item</li>
+                          <li>List Item</li>
+                        </ul>
+                      </details>
+                      <details class="feelings">
+                        <summary><h5>Feelings</h5></summary>
+                        <ul>
+                          <li>List Item</li>
+                          <li>List Item</li>
+                          <li>List Item</li>
+                        </ul>
+                      </details>
+                    </details>
+                    <details class="action" itemprop="potentialAction">
+                      <summary>
+                        <h4>Action Name</h4>
+                        <label>Satisfaction</label>
+                        <meter class="satisfaction" value="9" min="0" max="10" high="7" low="3" optimum="10"></meter>  
+                      </summary>
+                      <blockquote>Action Description</blockquote>
+                      <details class="touchpoints">
+                        <summary><h5>Touchpoints</h5></summary>
+                        <ul>
+                          <li>List Item</li>
+                          <li>List Item</li>
+                          <li>List Item</li>
+                        </ul>
+                      </details>
+                      <details class="thoughts">
+                        <summary><h5>Thoughts</h5></summary>
+                        <ul>
+                          <li>List Item</li>
+                          <li>List Item</li>
+                          <li>List Item</li>
+                        </ul>
+                      </details>
+                      <details class="feelings">
+                        <summary><h5>Feelings</h5></summary>
+                        <ul>
+                          <li>List Item</li>
+                          <li>List Item</li>
+                          <li>List Item</li>
+                        </ul>
+                      </details>
+                    </details>
+                    <details class="action pain" itemprop="potentialAction">
+                      <summary>
+                        <h4>Action Name</h4>
+                        <label>Satisfaction</label>
+                        <meter class="satisfaction" value="2" min="0" max="10" high="7" low="3" optimum="10"></meter>  
+                      </summary>
+                      <blockquote>Action Description</blockquote>
+                      <details class="touchpoints">
+                        <summary><h5>Touchpoints</h5></summary>
+                        <ul>
+                          <li>List Item</li>
+                          <li>List Item</li>
+                          <li>List Item</li>
+                        </ul>
+                      </details>
+                      <details class="thoughts">
+                        <summary><h5>Thoughts</h5></summary>
+                        <ul>
+                          <li>List Item</li>
+                          <li>List Item</li>
+                          <li>List Item</li>
+                        </ul>
+                      </details>
+                      <details class="feelings">
+                        <summary><h5>Feelings</h5></summary>
+                        <ul>
+                          <li>List Item</li>
+                          <li>List Item</li>
+                          <li>List Item</li>
+                        </ul>
+                      </details>
+                    </details>
+                  </section>
+                  <section class="reflections">
+                    <details class="opportunities" itemprop="potentialAction">
+                      <summary><h4>Opportunities</h4></summary>
+                      <ul>
+                        <li>List Item</li>
+                        <li>List Item</li>
+                        <li>List Item</li>
+                      </ul>
+                    </details>
+                    <details class="interventions" itemprop="potentialAction">
+                      <summary><h4>Potential Interventions</h4></summary>
+                    <ul>
+                      <li>List Item</li>
+                      <li>List Item</li>
+                      <li>List Item</li>
+                    </ul>
+                    </details>
+                  </section>
+                </details>
+              </section>
+          </details>
+            <details class="serviceJourney">
+        <summary>
+          <h2 class="serviceName" itemprop="subjectOf" itemscope itemtype="http://schema.org/Service" itemprop="name">Service Name 2</h2>
+        </summary>
+          <details class="drivers">
+            <summary>
+              <h2>Drivers 2</h2>
+            </summary>
+            <div>
+              <details class="goals" open>
+                <summary><h3>Goals 2</h3></summary>
+                <ul>
+                  <li>A Hypothetical User Persona goals help define a research subject group</li>
+                  <li>Assessment Persona goals are based on the affinity data from inital research</li>
+                  <li>Experimental Persona goals are selected to define an experiment subject group</li>
+                  <li>Analysis Persona goals are metrics based off the experiment data and associated through affinity mapping</li>
+                </ul>
+              </details>
+              <details class="values" open>
+                <summary><h3>Values</h3></summary>
+                <ul>
+                  <li>item</li>
+                  <li>item</li>
+                  <li>item</li>
+                </ul>
+              </details>
+              <details class="challenges" open>
+                <summary><h3>Challenges</h3></summary>
+                <ul>
+                  <li>item</li>
+                  <li>item</li>
+                  <li>item</li>
+                </ul>
+              </details>
+              <details class="privileges" open>
+                <summary><h3>Privileges</h3></summary>
+                <ul>
+                  <li>item</li>
+                  <li>item</li>
+                  <li>item</li>
+                </ul>
+              </details>
+              <details class="impacts" open>
+                <summary><h3>Impacts</h3></summary>
+                <ul>
+                  <li>item</li>
+                  <li>item</li>
+                  <li>item</li>
+                </ul>
+              </details>
+              <details class="needs" open>
+                <summary><h3>Needs</h3></summary>
+                <ul>
+                  <li>item</li>
+                  <li>item</li>
+                  <li>item</li>
+                </ul>
+              </details>
+            </div> 
+          </details>
+          <details class="navigators">
+              <summary><h2>Navigators 2</h2></summary>
+              <div>
+                <details class="identity">
+                  <summary><h3>Social Identity 2</h3></summary>
+                  <ul>
+                    <li>
+                      <details>
+                        <summary><span>Transgender</span><i class="fas fa-transgender-alt"></i></summary>
+                        <label>Importance</label>
+                      <meter class="satisfaction" value="5" min="0" max="10" high="7" low="3" optimum="10"></meter>
+                      </details>
+                    </li>
+                    <li>
+                      <details>
+                        <summary><span>Spiritual</span><i class="fas fa-pray"></i></summary>
+                      </details>
+                    </li>
+                    <li>
+                      <details>
+                        <summary><span>Nationalist</span><i class="fas fa-flag-usa"></i></summary>
+                      </details>
+                    </li>
+                  </ul>
+                </details>
+                <details class="motivation">
+                  <summary><h3>Motivation</h3></summary>
+                  <details class="intrinsic" open>
+                    <summary><h4>Intrinsic</h4></summary>
+                    <ul>
+                    <li>
+                      <details>
+                        <summary><i class="fas fa-award"></i></summary>
+                      </details>
+                    </li>
+                  </ul>
+                  </details>
+                  <details class="extrinsic" open>
+                    <summary><h4>Extrinsic</h4></summary>
+                    <ul>
+                    <li>
+                      <details>
+                        <summary><i class="fas fa-project-diagram"></i></summary>
+                      </details>
+                    </li>
+                  </ul>
+                  </details>
+                  <details class="disruptor" open>
+                    <summary><h4>Disruptor</h4></summary>
+                    <ul>
+                    <li>
+                      <details>
+                        <summary><i class="fas fa-tired"></i></summary>
+                      </details>
+                    </li>
+                    <li>
+                      <details>
+                        <summary><i class="fas fa-bullhorn"></i></summary>
+                      </details>
+                    </li>
+                  </ul>
+                  </details>
+                </details>
+                <details class="behavior">
+                    <summary><h3>Behavior</h3></summary>
+                  <details class="navigation" open>
+                    <summary><h4>Navigation</h4></summary>
+                    <ul>
+                    <li>
+                      <details>
+                        <summary><i class="fas fa-chess"></i></summary>
+                      </details>
+                    </li>
+                  </ul>
+                  </details>
+                  <details class="interaction" open>
+                    <summary><h4>Interaction</h4></summary>
+                    <ul>
+                    <li>
+                      <details>
+                        <summary><i class="fas fa-project-diagram"></i></summary>
+                      </details>
+                    </li>
+                  </ul>
+                  </details>
+                </details>
+                <details class="accessibility">
+                    <summary><h3>Accessibility</h3></summary>
+                  <ul>
+                    <li>
+                      <details>
+                        <summary><i class="fas fa-universal-access"></i></summary>
+                      </details>
+                    </li>
+                  </ul>
+                </details>
+                <details class="economics">
+                    <summary><h3>Economic Status</h3></summary>
+                  <ul>
+                    <li>
+                      <details>
+                        <summary><i class="fas fa-city"></i></summary>
+                      </details>
+                    </li>
+                    <li>
+                      <details>
+                        <summary><i class="fas fa-bus-alt"></i></summary>
+                      </details>
+                    </li>
+                    <li>
+                      <details>
+                        <summary><i class="fas fa-dollar-sign"></i><i class="fas fa-dollar-sign"></i><i class="fas fa-dollar-sign"></i></summary>
+                      </details>
+                    </li>
+                  </ul>
+                </details>
+              </div>
+            </details>
+        <section class="journey">
+          <h3>User Journey Map 1</h3>
+          <svg class="journeyMap"></svg>
+          <details class="phase" open>
+            <summary><h3>Phase Name</h3></summary>
+            <section class="steps">
+              <details class="action pain" itemprop="potentialAction">
+              <summary>
+                <h4>Action Name</h4>
+                <label>Satisfaction</label>
+                <meter class="satisfaction" value="5" min="0" max="10" high="7" low="3" optimum="10"></meter>  
+              </summary>
+              <blockquote>Action Description</blockquote>
+              <details class="touchpoints">
+                <summary><h5>Touchpoints</h5></summary>
+              </details>
+              <details class="thoughts">
+                <summary><h5>Thoughts</h5></summary>
+              </details>
+              <details class="feelings">
+                <summary><h5>Feelings</h5></summary>
+              </details>
+            </details>
+            </section>
+            <section class="reflections">
+              <details class="opportunities" itemprop="potentialAction">
+                <summary><h4>Opportunities</h4></summary>
+              </details>
+              <details class="interventions" itemprop="potentialAction">
+              <summary><h4>Potential Interventions</h4></summary>
+            </details>
+            </section>
+          </details>
+          <details class="phase" open>
+            <summary><h3>Phase Name</h3></summary>
+            <section class="steps">
+              <details class="action pain" itemprop="potentialAction">
+                <summary>
+                  <h4>Action Name</h4>
+                  <label>Satisfaction</label>
+                  <meter class="satisfaction" value="2" min="0" max="10" high="7" low="3" optimum="10"></meter>  
+                </summary>
+                <blockquote>Action Description</blockquote>
+                <details class="touchpoints">
+                  <summary><h5>Touchpoints</h5></summary>
+                  <ul>
+                    <li>List Item</li>
+                    <li>List Item</li>
+                    <li>List Item</li>
+                  </ul>
+                </details>
+                <details class="thoughts">
+                  <summary><h5>Thoughts</h5></summary>
+                  <ul>
+                    <li>List Item</li>
+                    <li>List Item</li>
+                    <li>List Item</li>
+                  </ul>
+                </details>
+                <details class="feelings">
+                  <summary><h5>Feelings</h5></summary>
+                  <ul>
+                    <li>List Item</li>
+                    <li>List Item</li>
+                    <li>List Item</li>
+                  </ul>
+                </details>
+              </details>
+              <details class="action" itemprop="potentialAction">
+                <summary>
+                  <h4>Action Name</h4>
+                  <label>Satisfaction</label>
+                  <meter class="satisfaction" value="9" min="0" max="10" high="7" low="3" optimum="10"></meter>  
+                </summary>
+                <blockquote>Action Description</blockquote>
+                <details class="touchpoints">
+                  <summary><h5>Touchpoints</h5></summary>
+                  <ul>
+                    <li>List Item</li>
+                    <li>List Item</li>
+                    <li>List Item</li>
+                  </ul>
+                </details>
+                <details class="thoughts">
+                  <summary><h5>Thoughts</h5></summary>
+                  <ul>
+                    <li>List Item</li>
+                    <li>List Item</li>
+                    <li>List Item</li>
+                  </ul>
+                </details>
+                <details class="feelings">
+                  <summary><h5>Feelings</h5></summary>
+                  <ul>
+                    <li>List Item</li>
+                    <li>List Item</li>
+                    <li>List Item</li>
+                  </ul>
+                </details>
+              </details>
+              <details class="action pain" itemprop="potentialAction">
+                <summary>
+                  <h4>Action Name</h4>
+                  <label>Satisfaction</label>
+                  <meter class="satisfaction" value="2" min="0" max="10" high="7" low="3" optimum="10"></meter>  
+                </summary>
+                <blockquote>Action Description</blockquote>
+                <details class="touchpoints">
+                  <summary><h5>Touchpoints</h5></summary>
+                  <ul>
+                    <li>List Item</li>
+                    <li>List Item</li>
+                    <li>List Item</li>
+                  </ul>
+                </details>
+                <details class="thoughts">
+                  <summary><h5>Thoughts</h5></summary>
+                  <ul>
+                    <li>List Item</li>
+                    <li>List Item</li>
+                    <li>List Item</li>
+                  </ul>
+                </details>
+                <details class="feelings">
+                  <summary><h5>Feelings</h5></summary>
+                  <ul>
+                    <li>List Item</li>
+                    <li>List Item</li>
+                    <li>List Item</li>
+                  </ul>
+                </details>
+              </details>
+            </section>
+            <section class="reflections">
+              <details class="opportunities" itemprop="potentialAction">
+                <summary><h4>Opportunities</h4></summary>
+                <ul>
+                  <li>List Item</li>
+                  <li>List Item</li>
+                  <li>List Item</li>
+                </ul>
+              </details>
+              <details class="interventions" itemprop="potentialAction">
+                <summary><h4>Potential Interventions</h4></summary>
+              <ul>
+                <li>List Item</li>
+                <li>List Item</li>
+                <li>List Item</li>
+              </ul>
+              </details>
+            </section>
+          </details>
+        </section>
+      </details>
+          </div>
+         </summary>
+      </details>      
+    </section>
+    <footer>
+      <details class="originalCopyright">
+        <summary>
+          <figure>
+            <img src="https://jeremyplatt.me/wp-content/uploads/2021/08/JeremyPlatt-logo-300x300.png" />
+          </figure>
+        </summary>
+        <h3 itemprop="creator" itemscope itemtype="http://schema.org/Person" itemprop="name">&copy; Jeremy Platt</h3>
+        <a href="https://jeremyplatt.me" itemscope itemtype="http://schema.org/WebSite" itemprop="url">jeremyplatt.me</a>
+      </details>
+    </footer>
+  </article>
+  </main>
+  <footer>
+  </footer>
+</body>
+</html>
