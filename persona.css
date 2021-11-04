@@ -1,0 +1,476 @@
+/* Import Variables */
+@import url("https://codepen.io/jeremyplatt/pen/ZEyarjX.css") screen;
+
+/* Set Persona Card Style Varibles (color) */
+:root {
+  --personaCard_width: 24rem;
+  --personaAction_width: 28;
+  
+ /*  Set Font Awesome Icons to be used with :after & :before content  */
+  --personaCard_personalIcon: '\f2bd';
+  --personaCard_driversIcon: '\f135';
+  --personaCard_navigatorsIcon: '\f277';
+  --personaCard_classificationIcon: '\f05a';
+  --personaCard_identityIcon: '\f2bd';
+  --personaCard_behaviorIcon: '\f4fe';
+  --personaCard_motivationIcon: '\f559';
+  --personaCard_accessibilityIcon: '\f29a';
+  --personaCard_economicsIcon: '\f200'; 
+  --personaCard_goalsIcon: '\f091';
+  --personaCard_valuesIcon: '\f4be';
+  --personaCard_challengesIcon: '\f6d9';
+  --personaCard_privilegesIcon: '\f197';
+  --personaCard_impactsIcon: '\f743';
+  --personaCard_needsIcon: '\f46d';
+}
+
+body > header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 0.5rem;
+  height: 100vh;
+  background: var(--color-primary);
+  background-image: -webkit-linear-gradient(0.5turn,var(--color-secondary-sat), var(--color-primary-sat), var(--color-secondary-comp-sat));
+      background-image: -moz-linear-gradient(0.5turn,var(--color-secondary-sat), var(--color-primary-sat), var(--color-secondary-comp-sat));
+      background-image: linear-gradient(0.5turn,var(--color-secondary-sat), var(--color-primary-sat), var(--color-secondary-comp-sat));
+}
+
+details summary > * { 
+  display: block;
+}
+
+/* Card Format for All Personas */
+.personaCard, .personaCard :is(header, section, footer, details, summary, figure, img){
+  margin:0;
+  padding:0;
+  font-family: var(--text-font);
+  width: 100%;
+}
+
+.personaCard {
+  text-shadow: 0.02em 0.02em 0.02em var(--palette-shadow);
+  box-shadow: 0.1em 0.1em 0.2em #aaa;
+  display:grid;
+  
+  grid-template-areas: "service service"
+                     "portrait portrait"
+                     "main main"
+                     "menu menu";
+  grid-template-rows: auto 1fr auto auto;
+  grid-auto-rows: minmax(2rem, auto);
+  position: relative;
+  width: var(--personaCard_width);
+  height: calc(100vh - 0.5em);
+  margin-bottom: 2em;
+  z-index:0;
+}
+
+.personaCard :is(img, svg){
+  width: 100%;
+}
+
+.personaCard :is(h1, h2, h3, h4, h5) {
+  margin:0;
+  padding:0;
+}
+
+.personaCard blockquote {
+  margin: 0;
+  margin-top: 1em;
+}
+
+.personaCard details > summary {
+  list-style: none;
+  cursor: pointer;
+}
+
+.personaCard details > summary::-webkit-details-marker {
+  display: none;
+}
+
+.personaCard figure :is(svg, img){
+  z-index: 1;
+}
+
+.personaCard > header {
+  display: contents;
+}
+.personaCard > header > figure {
+  overflow: auto; /* hidden */
+  grid-area: portrait;
+  width: var(--personaCard_width);
+}
+.personaCard > header > figure > img{
+  object-fit: cover;
+  object-position: 50% 35%;
+  height: 100%;
+  position: relative;
+}
+
+.personaCard header details.tier {
+    position: absolute;
+    top: 0em;
+    left: 0em;
+    width: 6rem;
+    height: 6rem;
+    filter: drop-shadow(-0.1em 0.3em 0.1em rgba(50, 50, 0, 0.1));
+    z-index: 100;
+    overflow: hidden;
+  }
+  .personaCard header .tier summary {
+    position: relative;
+    height: 100%;
+    width: 100%;
+    clip-path: circle(50% at center);
+    top: -1.5rem;
+    left: -1.5rem;
+  }
+ .personaCard header .tier :is(h3, h4) {
+    display: none;
+    font-size: 3rem;
+  }
+.personaCard header .tier[open] h4 {
+      position: absolute;
+      display: block;
+      top: calc(50% - 1rem);
+      left: calc(50% - 1rem);
+      transform: translate(-50%, -50%) ;
+}
+.personaCard > header > details.personal {
+    display: contents;
+}
+.personaCard header details.description {
+    grid-area: main;
+    width: var(--personaCard_width);
+    width: calc(100% - 2rem);
+    height: calc(50vh - 6.5rem);
+    padding: 1rem;
+    overflow: scroll;
+}
+.personaCard .personaDescription {
+    padding-bottom: 2em;
+}
+.personaCard header details.description summary + div h3 {
+  font-size: var(--font-size);
+}
+.personaCard > section.service {
+  display: contents;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+details.journeyList {
+  display: contents;
+}
+details.journeyList > summary {
+  display: contents;
+}
+details.journeyList > summary > div{
+  display: contents;
+}
+details.journeyList[open] > summary > div {
+  grid-area: portrait;
+  display: block;
+  overflow: scroll;
+  z-index: 70;
+}
+details.journeyList > summary > h2{  
+  grid-area: service;
+  text-align: right;
+  padding-right: 1em;
+  text-transform: lowercase;
+  width: calc(var(--personaCard_width) - 1em); 
+  z-index: 80;
+  background: var(--color-primary-light);
+  filter: drop-shadow(-0.1em 0.3em 0.1em rgba(50, 50, 0, 0.1));
+}
+details.journeyList > summary > h2 > span{
+/*  display: none; */
+}
+details.journeyList > summary details.serviceJourney > summary {
+  grid-area: service;
+  z-index: 75;
+}
+details.journeyList[open] > summary details.serviceJourney > summary {
+  display: block;
+  grid-area: none;
+}
+details.journeyList[open] > summary details.serviceJourney > summary{
+  display: contents;
+}
+details.journeyList[open] details.serviceJourney > summary {
+  height: 2rem;
+  display: block;
+}
+details.journeyList[open] > summary details.serviceJourney > details > div{
+  display: none;
+}
+details.journeyList[open] details.serviceJourney > details > summary:before, details.journeyList[open] details.serviceJourney > details > summary{
+  display: none;
+}
+
+.personaCard details.serviceJourney[open]{
+  display: contents;
+  width: 100%;
+}
+.personaCard .serviceName {
+  text-align: right;
+  padding-right: 1em;
+  text-transform: lowercase;
+  width: calc(var(--personaCard_width) - 1em);
+  z-index: 80;
+}
+details.serviceJourney{
+  display: contents;
+}
+details.serviceJourney > summary{
+  display: none;
+}
+
+details.serviceJourney > summary {
+  display: none;
+  grid-area: main;
+}
+details.serviceJourney > details{
+  display: contents;
+}
+details.serviceJourney > details > div{
+  grid-area: main;
+  display: block;
+  overflow: scroll;
+  height: calc(100vh - 16rem);
+  width: calc(var(--personaCard_width) - 0.2rem);
+  z-index: 50;
+}
+details.serviceJourney > details[open] > div{
+  background: var(--color-primary-light);
+  padding: 2rem 1rem;
+  width: calc(100% - 2rem);
+  color: var(--color-secondary-comp-dark); 
+}
+details.serviceJourney > details[open] > div > details{
+  background: var(--color-primary-light);
+  color: var(--color-secondary-comp-dark); 
+  box-shadow: 0.1em 0.1em 0.2em #aaa;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+details.serviceJourney > details[open] > div > details > summary:hover > h3:before, details.serviceJourney > details[open] > div > details[open] > summary > h3:before {
+  color: var(--color-primary-sat);
+}
+details.serviceJourney > details[open] > div details{
+  padding: 1rem;
+  width: calc(100% - 2rem);
+}
+details.serviceJourney > details[open]:focus-within > div{
+  z-index:51;
+}
+details.serviceJourney > details > summary, .personal > summary {
+  grid-area: menu;
+  display: inline;
+  width: 100%;
+  height: calc(var(--h1-size) * 2);
+  vertical-align: middle;
+  background: var(--color-primary-light); 
+}
+details.serviceJourney > details > summary {
+  margin-left: 6em;
+  width: calc(100% - 6em);
+}
+details.serviceJourney > details.drivers > summary {
+  margin-left: 12em;
+  width: calc(100% - 12em);
+}
+details.serviceJourney > details > summary h2, .personal > summary h2 {
+  display: none;
+}
+details.serviceJourney > details > summary:before, .personal > summary:before {
+  padding-top: 0.5em;
+  margin: 0;
+  text-align: center;
+  display: block;
+  position: relative;
+  height: 100%;
+  width: 3em;
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 900;
+  font-size: 2em;
+  color: var(--color-primary);
+  content: var(--personaCard_personalIcon); 
+}
+:is(details.navigators, details.drivers) > div > details h3:before {
+  display: inline-block;
+  position: relative;
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 900;
+  font-size: 1.5em;
+  padding-right: 0.5em;
+  top: 0.1em;
+  color: var(--color-primary);
+  content: var(--personaCard_identityIcon);
+}
+
+details.navigators > div:before {
+  display: block;
+  font-size: var(--h2-size);
+  font-weight: var(--h2-weight);
+  padding-bottom: 1em;
+  content: 'navigators';
+  color: var(--color-primary-sat);
+}
+
+details.drivers > div:before {
+  display: block;
+  font-size: var(--h2-size);
+  font-weight: var(--h2-weight);
+  padding-bottom: 1em;
+  content: 'drivers';
+  color: var(--color-primary-sat);
+}
+
+details.navigators > div > details.motivation h3:before {
+  content: var(--personaCard_motivationIcon); 
+}
+details.navigators > div > details.behavior h3:before {
+  content: var(--personaCard_behaviorIcon); 
+}
+details.navigators > div > details.accessibility h3:before {
+  content: var(--personaCard_accessibilityIcon); 
+}
+details.navigators > div > details.economics h3:before {
+  content: var(--personaCard_economicsIcon); 
+}
+details.drivers > div > details.goals h3:before {
+  content: var(--personaCard_goalsIcon); 
+}
+details.drivers > div > details.values h3:before {
+  content: var(--personaCard_valuesIcon); 
+}
+details.drivers > div > details.challenges h3:before {
+  content: var(--personaCard_challengesIcon); 
+}
+details.drivers > div > details.needs h3:before {
+  content: var(--personaCard_needsIcon); 
+}
+details.drivers > div > details.privileges h3:before {
+  content: var(--personaCard_privilegesIcon); 
+  transform-origin: top;
+  transform: rotate(-90deg);
+  margin-left: -0.8em;
+  margin-right: 0.4em;
+}
+details.drivers > div > details.impacts h3:before {
+  content: var(--personaCard_impactsIcon); 
+}
+details.serviceJourney > details > summary:hover:before, .personal > summary:hover:before { 
+  color: var(--color-primary-sat);
+}
+details.serviceJourney > details[open] > summary:before, .personal[open] > summary:before { 
+  color: var(--color-primary-sat);
+}
+details.journeyList > summary > h2:hover, details.journeyList[open] > summary > h2, details.journeyList[open]  details.serviceJourney[open] > summary > h2 {
+  color: var(--color-primary-dark);
+}
+
+details.serviceJourney > details > summary:before {
+  padding-top: 0.5em;
+  margin: 0;
+  text-align: center;
+  display: block;
+  position: relative;
+  height: 100%;
+  width: 3em;
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 900;
+  font-size: 2em;
+  color: var(--color-primary);
+  content: var(--personaCard_navigatorsIcon);
+}
+details.serviceJourney details.drivers > summary:before {
+  content: var(--personaCard_driversIcon);
+}
+
+details.serviceJourney details :is(ul, ol) {
+  list-style-type:none;
+}
+details.serviceJourney details.drivers details :is(ul, ol) {
+  list-style-type: disc;
+}
+details.serviceJourney details.drivers li {
+  margin-bottom: 1rem;
+}
+i.fas + span {
+  display:none;
+}
+
+.personaCard section.journey {
+  display:none;
+}
+
+.personaCard footer {
+  grid-area: portrait;
+  text-align: right;
+  position: absolute;
+  right: 0;
+  top: 0;
+  padding-right: 1rem;
+  z-index: 60;
+}
+.personaCard footer details {
+  position: absolute;
+  right: 0;
+  width: calc(100% - 2rem);
+  padding-right: 1rem;
+  top: 1rem;
+  
+}
+.personaCard footer details[open] {
+  background: var(--color-primary-light);
+  box-shadow: 0.1em 0.1em 0.2em #aaa;
+  width: auto;
+}
+.personaCard footer details h3 {
+  color: var(--color-primary-dark);
+  font-size: var(--font-size);
+}
+
+.personaCard footer img {
+  font-size: var(--h1-size);
+  width: 1em;
+}
+
+/* Set Different Styling for User, Impact and Distruptor Personas */
+
+/* User Persona Card Style */
+.userCard {
+      background-color: var(--color-primary);
+      background-image: -webkit-linear-gradient(0.35turn,var(--color-secondary), var(--color-primary));
+      background-image: -moz-linear-gradient(0.35turn,var(--color-secondary), var(--color-primary));
+      background-image: linear-gradient(0.35turn,var(--color-secondary), var(--color-primary));
+  color: var(--color-primary-light);
+}
+.userCard header figure :is(img, svg) {
+  filter: url('#underglazer');
+}
+.userCard header .tier summary {
+  background: var(--color-primary);
+}
+.userCard details.serviceJourney > details[open] > div{
+      background-color: var(--color-primary);
+      background-image: -webkit-linear-gradient(0.35turn,var(--color-secondary), var(--color-primary));
+      background-image: -moz-linear-gradient(0.35turn,var(--color-secondary), var(--color-primary));
+      background-image: linear-gradient(0.35turn,var(--color-secondary), var(--color-primary));
+  color: var(--color-primary-light);
+}
+.userCard header details.description summary + div h3 {
+  color: var(--color-primary-light);
+}
+.userCard section.service .serviceName {
+  background: var(--color-primary-light);
+  filter: drop-shadow(-0.1em 0.3em 0.1em rgba(50, 50, 0, 0.1));
+}
+.userCard header .tier[open] h4 {
+      color: var(--color-primary-light);
+}
