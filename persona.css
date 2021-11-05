@@ -12,7 +12,7 @@
   --personaCard_navigatorsIcon: '\f277';
   --personaCard_classificationIcon: '\f05a';
   --personaCard_identityIcon: '\f2bd';
-  --personaCard_behaviorIcon: '\f4fe';
+  --personaCard_behaviorIcon: '\f630';
   --personaCard_motivationIcon: '\f559';
   --personaCard_accessibilityIcon: '\f29a';
   --personaCard_economicsIcon: '\f200'; 
@@ -22,6 +22,11 @@
   --personaCard_privilegesIcon: '\f197';
   --personaCard_impactsIcon: '\f743';
   --personaCard_needsIcon: '\f46d';
+  --personaCard_requiredDecideIcon: '\f4fc';
+  --personaCard_preventDecideIcon: '\f506';
+  --personaCard_helpDecideIcon: '\f21b';
+  --personaCard_speedUpIcon: '\f04e';
+  --personaCard_speedDownIcon: '\f04a';
 }
 
 body > header {
@@ -277,11 +282,10 @@ details.serviceJourney > details > summary, .personal > summary {
 }
 details.serviceJourney > details > summary {
   margin-left: 6em;
-  width: calc(100% - 6em);
+  width: calc(100% - 12em);
 }
 details.serviceJourney > details.drivers > summary {
   margin-left: 12em;
-  width: calc(100% - 12em);
 }
 details.serviceJourney > details > summary h2, .personal > summary h2 {
   display: none;
@@ -299,6 +303,37 @@ details.serviceJourney > details > summary:before, .personal > summary:before {
   font-size: 2em;
   color: var(--color-primary);
   content: var(--personaCard_personalIcon); 
+}
+
+:is(details.required-decide, details.prevent-decide, details.help-decide, details.speed-up, details.speed-down) summary h4 {
+  display: inline;
+  font-size: 1rem;
+} 
+:is(details.required-decide, details.prevent-decide, details.help-decide, details.speed-up, details.speed-down) summary:before {
+  display: inline-block;
+  position: relative;
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 900;
+  font-size: 1em;
+  padding-right: 0.5em; 
+  top: 0.1em;
+  color: var(--color-primary-comp);
+  content: var(--personaCard_requiredDecideIcon);
+}
+details.prevent-decide summary:before {
+  content: var(--personaCard_preventDecideIcon);
+  color: var(--color-primary);
+}
+details.help-decide summary:before {
+  content: var(--personaCard_helpDecideIcon); 
+  color: var(--color-secondary-comp);
+}
+details.speed-up summary:before {
+  content: var(--personaCard_speedUpIcon); 
+}
+details.speed-down summary:before {
+  content: var(--personaCard_speedDownIcon); 
+  color: var(--color-primary);
 }
 :is(details.navigators, details.drivers) > div > details h3:before {
   display: inline-block;
@@ -318,7 +353,7 @@ details.navigators > div:before {
   font-weight: var(--h2-weight);
   padding-bottom: 1em;
   content: 'navigators';
-  color: var(--color-primary-sat);
+  color: var(--color-primary-light);
 }
 
 details.drivers > div:before {
@@ -327,7 +362,7 @@ details.drivers > div:before {
   font-weight: var(--h2-weight);
   padding-bottom: 1em;
   content: 'drivers';
-  color: var(--color-primary-sat);
+  color: var(--color-primary-light);
 }
 
 details.navigators > div > details.motivation h3:before {
@@ -430,6 +465,10 @@ i.fas + span {
   background: var(--color-primary-light);
   box-shadow: 0.1em 0.1em 0.2em #aaa;
   width: auto;
+  
+}
+.personaCard footer details[open] a {
+  padding-left: 0.5rem;
 }
 .personaCard footer details h3 {
   color: var(--color-primary-dark);
