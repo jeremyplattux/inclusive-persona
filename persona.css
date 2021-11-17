@@ -28,7 +28,6 @@
   --personaCard_speedUpIcon: '\f04e';
   --personaCard_speedDownIcon: '\f04a';
 }
-
 body > header {
   position: fixed;
   top: 0;
@@ -53,7 +52,6 @@ details summary > * {
   font-family: var(--text-font);
   width: 100%;
 }
-
 .personaCard {
   text-shadow: 0.02em 0.02em 0.02em var(--palette-shadow);
   box-shadow: 0.1em 0.1em 0.2em #aaa;
@@ -70,38 +68,53 @@ details summary > * {
   height: calc(100vh - 0.5em);
   margin-bottom: 2em;
   z-index:0;
+  
+  background-color: var(--palette-ground);
+      background-image: -webkit-linear-gradient(var(--palette-basewash));
+      background-image: -moz-linear-gradient(var(--palette-basewash));
+      background-image: linear-gradient(var(--palette-basewash));
+  color: var(--font-color);
 }
-
 .personaCard :is(img, svg){
   width: 100%;
 }
-
+.personaCard figure :is(svg, img){
+  z-index: 1;
+}
+.personaCard header figure :is(svg, img){
+  filter: var(--palette-underglaze);
+}
 .personaCard :is(h1, h2, h3, h4, h5) {
   margin:0;
   padding:0;
 }
-
 .personaCard blockquote {
   margin: 0;
   margin-top: 1em;
 }
-
 .personaCard details > summary {
   list-style: none;
   cursor: pointer;
+}
+.personaCard label:hover, .personaCard label:hover :is(h1, h2, h3, h4), .personaCard input:checked + label, .personaCard input:checked + label :is(h1, h2, h3, h4) {
+  cursor: pointer;
+  color: var(--color-primary-dark);
 }
 
 .personaCard details > summary::-webkit-details-marker {
   display: none;
 }
 
-.personaCard figure :is(svg, img){
-  z-index: 1;
+.personaCard :is(input.personaNav, input.serviceName, input.journeyList) {
+  display: none;
 }
 
-.personaCard > header {
+
+/* Persona Header Formatting */
+.personaCard > header, .personaCard > section, .personaCard > footer {
   display: contents;
 }
+
 .personaCard > header > figure {
   overflow: auto; /* hidden */
   grid-area: portrait;
@@ -131,25 +144,36 @@ details summary > * {
     clip-path: circle(50% at center);
     top: -1.5rem;
     left: -1.5rem;
+    
+    background: var(--palette-ground);
   }
  .personaCard header .tier :is(h3, h4) {
     display: none;
     font-size: 3rem;
   }
-.personaCard header .tier[open] h4 {
+.personaCard header .tier[open] :is(h3, h4) {
       position: absolute;
       display: block;
       top: calc(50% - 1rem);
       left: calc(50% - 1rem);
       transform: translate(-50%, -50%) ;
 }
-.personaCard > header > details.personal {
-    display: contents;
-}
-.personaCard header details.description {
+.personaCard header input.personaNav + label + details.description {
+    display: none;
     grid-area: main;
-    width: var(--personaCard_width);
-    width: calc(100% - 2rem);
+}
+
+.personaCard header input.personaNav:checked + label + details.description {
+    display: block;
+    width: calc(var(--personaCard_width) - 2rem);
+    height: calc(2rem);
+    padding: 1rem;
+    overflow: scroll;
+  z-index: 101;
+}
+.personaCard header input.personaNav:checked + label + details.description[open] {
+    display: block;
+    width: calc(var(--personaCard_width) - 2rem);
     height: calc(50vh - 6.5rem);
     padding: 1rem;
     overflow: scroll;
@@ -160,28 +184,9 @@ details summary > * {
 .personaCard header details.description summary + div h3 {
   font-size: var(--font-size);
 }
-.personaCard > section.service {
-  display: contents;
-  margin: 0;
-  padding: 0;
-  width: 100%;
-}
-details.journeyList {
-  display: contents;
-}
-details.journeyList > summary {
-  display: contents;
-}
-details.journeyList > summary > div{
-  display: contents;
-}
-details.journeyList[open] > summary > div {
-  grid-area: portrait;
-  display: block;
-  overflow: scroll;
-  z-index: 70;
-}
-details.journeyList > summary > h2{  
+
+/* Persona Service Formatting */
+.personaCard input.journeyList + label {  
   grid-area: service;
   text-align: right;
   padding-right: 1em;
@@ -191,106 +196,135 @@ details.journeyList > summary > h2{
   background: var(--color-primary-light);
   filter: drop-shadow(-0.1em 0.3em 0.1em rgba(50, 50, 0, 0.1));
 }
-details.journeyList > summary > h2 > span{
-/*  display: none; */
+.personaCard input.journeyList + label h2:after{
+  content: ' \2261';
 }
-details.journeyList > summary details.serviceJourney > summary {
-  grid-area: service;
-  z-index: 75;
+.personaCard input.journeyList:checked + label h2:after{
+  content: ' \2912';
 }
-details.journeyList[open] > summary details.serviceJourney > summary {
-  display: block;
-  grid-area: none;
+
+.personaCard input.journeyList + label + div {
+  grid-area: main;
 }
-details.journeyList[open] > summary details.serviceJourney > summary{
-  display: contents;
+
+.personaCard input.journeyList + label + div > section > label { 
+  display: none;
 }
-details.journeyList[open] details.serviceJourney > summary {
+
+/* .personaCard input.journeyList:checked + label + div, .personaCard input.journeyList:checked + label + div > section  {
+  display: contents; 
+} */
+.personaCard input.journeyList:checked + label + div > section section {
+/*   display: none; */
+}
+
+.personaCard input.journeyList:checked + label + div {
+  grid-area: portrait;
+}
+
+.personaCard input.journeyList:checked + label + div > section{
   height: 2rem;
-  display: block;
-}
-details.journeyList[open] > summary details.serviceJourney > details > div{
-  display: none;
-}
-details.journeyList[open] details.serviceJourney > details > summary:before, details.journeyList[open] details.serviceJourney > details > summary{
-  display: none;
 }
 
-.personaCard details.serviceJourney[open]{
-  display: contents;
-  width: 100%;
-}
-.personaCard .serviceName {
+.personaCard input.journeyList:checked + label + div > section > label { 
   text-align: right;
-  padding-right: 1em;
-  text-transform: lowercase;
-  width: calc(var(--personaCard_width) - 1em);
-  z-index: 80;
-}
-details.serviceJourney{
-  display: contents;
-}
-details.serviceJourney > summary{
-  display: none;
+  display: block;
+  position: relative;
+  z-index: 70;
+} 
+
+
+
+.personaCard input.journeyList:checked + label {
+  position: relative;
 }
 
-details.serviceJourney > summary {
-  display: none;
+.personaCard input.serviceName + label + section, .personaCard input.serviceName + label + section + section, .personaCard input.serviceName + label + section + section + section {
+  display:none; 
+}
+
+/* needed for journey section - .personaCard input.serviceName:checked + label + section + section + section */
+.personaCard input.serviceName:checked + label + section, .personaCard input.serviceName:checked + label + section + section {
+  display:contents; 
+}
+
+.personaCard input.serviceName:checked + label + section  input.personaNav + label + div, .personaCard input.serviceName:checked + label + section + section  input.personaNav + label + div{
+  display:none; 
   grid-area: main;
 }
-details.serviceJourney > details{
-  display: contents;
-}
-details.serviceJourney > details > div{
-  grid-area: main;
+.personaCard input.serviceName:checked + label + section  input.personaNav:checked + label + div, .personaCard input.serviceName:checked + label + section + section  input.personaNav:checked + label + div{
   display: block;
   overflow: scroll;
-  height: calc(100vh - 16rem);
-  width: calc(var(--personaCard_width) - 0.2rem);
+  height: calc(100vh - 12rem);
+  width: calc(var(--personaCard_width) - 2rem);
   z-index: 50;
+  
 }
-details.serviceJourney > details[open] > div{
-  background: var(--color-primary-light);
-  padding: 2rem 1rem;
-  width: calc(100% - 2rem);
-  color: var(--color-secondary-comp-dark); 
+
+ .personaCard input.personaNav + label:before {
+  padding-top: 0.5em;
+  margin: 0;
+  text-align: center;
+  display: block;
+  position: relative;
+  height: 100%;
+  width: 3em;
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 900;
+  font-size: 2rem;
+  color: var(--color-primary);
+  content: var(--personaCard_personalIcon); 
+  cursor: pointer;
 }
-details.serviceJourney > details[open] > div > details{
-  background: var(--color-primary-light);
-  color: var(--color-secondary-comp-dark); 
-  box-shadow: 0.1em 0.1em 0.2em #aaa;
-  border-radius: 0.5rem;
-  margin-bottom: 1rem;
-}
-details.serviceJourney > details[open] > div > details > summary:hover > h3:before, details.serviceJourney > details[open] > div > details[open] > summary > h3:before {
-  color: var(--color-primary-sat);
-}
-details.serviceJourney > details[open] > div details{
-  padding: 1rem;
-  width: calc(100% - 2rem);
-}
-details.serviceJourney > details[open]:focus-within > div{
-  z-index:51;
-}
-details.serviceJourney > details > summary, .personal > summary {
+
+.personaCard input.personaNav + label {
   grid-area: menu;
-  display: inline;
+  display: block;
   width: 100%;
   height: calc(var(--h1-size) * 2);
   vertical-align: middle;
   background: var(--color-primary-light); 
 }
-details.serviceJourney > details > summary {
-  margin-left: 6em;
-  width: calc(100% - 12em);
+.personaCard section input.personaNav + label {
+  position: absolute;
+  top: 0;
+  left: 6rem;
+  width: 6rem;
 }
-details.serviceJourney > details.drivers > summary {
-  margin-left: 12em;
+section.serviceJourney > section.drivers > label {
+  left: 12rem;
 }
-details.serviceJourney > details > summary h2, .personal > summary h2 {
+
+.personaCard input.personaNav + label:hover:before, 
+.personaCard :is(section.navigators, section.drivers) > label:hover:before, .personaCard :is(section.navigators, section.drivers) input.personaNav:checked + label:before, .personaCard input.personaNav:checked + label:before {
+  color: var(--color-primary-sat);
+}
+.personaCard input.personaNav:checked + label + div > details[open] > summary > h3:before, .personaCard input.personaNav:checked + label + div > details > summary > h3:hover:before {
+  color: var(--color-primary-sat);
+}
+.personaCard section.serviceJourney details :is(ul, ol) {
+  list-style-type:none;
+}
+
+
+.personaCard section.serviceJourney > section > label :is(h2, h3), .personaCard header input.personaNav + label h2 span{
   display: none;
 }
-details.serviceJourney > details > summary:before, .personal > summary:before {
+
+.personaCard :is(section.navigators, section.drivers) > div:before {
+  display: block;
+  font-size: var(--h2-size);
+  font-weight: var(--h2-weight);
+  padding-bottom: 1em;
+  content: 'navigators';
+  color: var(--color-primary-light);
+}
+
+.personaCard section.drivers > div:before {
+  content: 'drivers';
+}
+
+.personaCard :is(section.navigators, section.drivers) > label:before {
   padding-top: 0.5em;
   margin: 0;
   text-align: center;
@@ -301,8 +335,65 @@ details.serviceJourney > details > summary:before, .personal > summary:before {
   font-family: "Font Awesome 5 Free"; 
   font-weight: 900;
   font-size: 2em;
+  cursor: pointer;
   color: var(--color-primary);
-  content: var(--personaCard_personalIcon); 
+  content: var(--personaCard_navigatorsIcon);
+}
+.personaCard section.drivers > label:before {
+  content: var(--personaCard_driversIcon);
+}
+
+
+.serviceJourney > section > div details {
+    padding: 1rem;
+    width: calc(100% - 2rem);
+}
+
+.personaCard :is(section.navigators, section.drivers) > div > details h3:before {
+  display: inline-block;
+  position: relative;
+  font-family: "Font Awesome 5 Free"; 
+  font-weight: 900;
+  font-size: 1.5em;
+  padding-right: 0.5em;
+  top: 0.1em; 
+  color: var(--color-primary);
+  content: var(--personaCard_identityIcon);
+}
+section.navigators > div > details.motivation h3:before {
+  content: var(--personaCard_motivationIcon); 
+}
+section.navigators > div > details.behavior h3:before {
+  content: var(--personaCard_behaviorIcon); 
+}
+section.navigators > div > details.accessibility h3:before {
+  content: var(--personaCard_accessibilityIcon); 
+}
+section.navigators > div > details.economics h3:before {
+  content: var(--personaCard_economicsIcon); 
+}
+
+.personaCard section.drivers > div > details.goals h3:before {
+  content: var(--personaCard_goalsIcon); 
+}
+.personaCard section.drivers > div > details.values h3:before {
+  content: var(--personaCard_valuesIcon); 
+}
+.personaCard section.drivers > div > details.challenges h3:before {
+  content: var(--personaCard_challengesIcon); 
+}
+.personaCard section.drivers > div > details.needs h3:before {
+  content: var(--personaCard_needsIcon); 
+}
+.personaCard section.drivers > div > details.privileges h3:before {
+  content: var(--personaCard_privilegesIcon); 
+  transform-origin: top;
+  transform: rotate(-90deg);
+  margin-left: -0.8em;
+  margin-right: 0.4em;
+}
+.personaCard section.drivers > div > details.impacts h3:before {
+  content: var(--personaCard_impactsIcon); 
 }
 
 :is(details.required-decide, details.prevent-decide, details.help-decide, details.speed-up, details.speed-down) summary h4 {
@@ -315,8 +406,7 @@ details.serviceJourney > details > summary:before, .personal > summary:before {
   font-family: "Font Awesome 5 Free"; 
   font-weight: 900;
   font-size: 1em;
-  padding-right: 0.5em; 
-  top: 0.1em;
+  padding-right: 0.5em;
   color: var(--color-primary-comp);
   content: var(--personaCard_requiredDecideIcon);
 }
@@ -335,134 +425,57 @@ details.speed-down summary:before {
   content: var(--personaCard_speedDownIcon); 
   color: var(--color-primary);
 }
-:is(details.navigators, details.drivers) > div > details h3:before {
-  display: inline-block;
-  position: relative;
+
+section.serviceJourney > section > input:checked + label + div > details {
+  background: var(--color-primary-light);
+  color: var(--color-secondary-comp-dark); 
+  box-shadow: 0.1em 0.1em 0.2em #aaa;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  width: calc(100% - 2rem);
+}
+
+.personaCard section.serviceJourney > section > input:checked + label + div {
+  padding: 1rem;
+  display: block;
+}
+.personaCard section.drivers details :is(ul, ol){
+  list-style-type: none;
+}
+ .personaCard section.drivers li:before {  
+  content: var(--personaCard_speedUpIcon);
+   position: relative;
+  left: -1em;
+  
   font-family: "Font Awesome 5 Free"; 
   font-weight: 900;
-  font-size: 1.5em;
-  padding-right: 0.5em;
-  top: 0.1em;
-  color: var(--color-primary);
-  content: var(--personaCard_identityIcon);
+  font-size: 0.8em;
 }
-
-details.navigators > div:before {
-  display: block;
-  font-size: var(--h2-size);
-  font-weight: var(--h2-weight);
-  padding-bottom: 1em;
-  content: 'navigators';
-  color: var(--color-primary-light);
+ .personaCard section.drivers details.speed-down li:before {  
+  content: var(--personaCard_speedDownIcon);
 }
-
-details.drivers > div:before {
-  display: block;
-  font-size: var(--h2-size);
-  font-weight: var(--h2-weight);
-  padding-bottom: 1em;
-  content: 'drivers';
-  color: var(--color-primary-light);
-}
-
-details.navigators > div > details.motivation h3:before {
-  content: var(--personaCard_motivationIcon); 
-}
-details.navigators > div > details.behavior h3:before {
-  content: var(--personaCard_behaviorIcon); 
-}
-details.navigators > div > details.accessibility h3:before {
-  content: var(--personaCard_accessibilityIcon); 
-}
-details.navigators > div > details.economics h3:before {
-  content: var(--personaCard_economicsIcon); 
-}
-details.drivers > div > details.goals h3:before {
-  content: var(--personaCard_goalsIcon); 
-}
-details.drivers > div > details.values h3:before {
-  content: var(--personaCard_valuesIcon); 
-}
-details.drivers > div > details.challenges h3:before {
-  content: var(--personaCard_challengesIcon); 
-}
-details.drivers > div > details.needs h3:before {
-  content: var(--personaCard_needsIcon); 
-}
-details.drivers > div > details.privileges h3:before {
-  content: var(--personaCard_privilegesIcon); 
-  transform-origin: top;
-  transform: rotate(-90deg);
-  margin-left: -0.8em;
-  margin-right: 0.4em;
-}
-details.drivers > div > details.impacts h3:before {
-  content: var(--personaCard_impactsIcon); 
-}
-details.serviceJourney > details > summary:hover:before, .personal > summary:hover:before { 
-  color: var(--color-primary-sat);
-}
-details.serviceJourney > details[open] > summary:before, .personal[open] > summary:before { 
-  color: var(--color-primary-sat);
-}
-details.journeyList > summary > h2:hover, details.journeyList[open] > summary > h2, details.journeyList[open]  details.serviceJourney[open] > summary > h2 {
-  color: var(--color-primary-dark);
-}
-
-details.serviceJourney > details > summary:before {
-  padding-top: 0.5em;
-  margin: 0;
-  text-align: center;
-  display: block;
-  position: relative;
-  height: 100%;
-  width: 3em;
-  font-family: "Font Awesome 5 Free"; 
-  font-weight: 900;
-  font-size: 2em;
-  color: var(--color-primary);
-  content: var(--personaCard_navigatorsIcon);
-}
-details.serviceJourney details.drivers > summary:before {
-  content: var(--personaCard_driversIcon);
-}
-
-details.serviceJourney details :is(ul, ol) {
-  list-style-type:none;
-}
-details.serviceJourney details.drivers details :is(ul, ol) {
-  list-style-type: disc;
-}
-details.serviceJourney details.drivers li {
+.personaCard section.drivers li {
+  font-family: var(--text-font);
   margin-bottom: 1rem;
 }
-i.fas + span {
-  display:none;
-}
 
-.personaCard section.journey {
-  display:none;
-}
-
+/* Persona Footer Formatting */
 .personaCard footer {
-  grid-area: portrait;
+  
   text-align: right;
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding-right: 1rem;
-  z-index: 60;
 }
 .personaCard footer details {
+  grid-area: portrait;
   position: absolute;
   right: 0;
   width: calc(100% - 2rem);
   padding-right: 1rem;
   top: 1rem;
-  
+  z-index: 60;
 }
 .personaCard footer details[open] {
-  background: var(--color-primary-light);
+  background: var(--palette-ground);
   box-shadow: 0.1em 0.1em 0.2em #aaa;
   width: auto;
   
@@ -471,7 +484,7 @@ i.fas + span {
   padding-left: 0.5rem;
 }
 .personaCard footer details h3 {
-  color: var(--color-primary-dark);
+  color: var(--font-color);
   font-size: var(--font-size);
 }
 
@@ -484,19 +497,20 @@ i.fas + span {
 
 /* User Persona Card Style */
 .userCard {
-      background-color: var(--color-primary);
-      background-image: -webkit-linear-gradient(0.35turn,var(--color-secondary), var(--color-primary));
-      background-image: -moz-linear-gradient(0.35turn,var(--color-secondary), var(--color-primary));
-      background-image: linear-gradient(0.35turn,var(--color-secondary), var(--color-primary));
-  color: var(--color-primary-light);
+  --palette-ground: var(--color-primary);
+  --palette-basewash: 0.35turn,var(--color-secondary), var(--color-primary);
+  --font-color: var(--color-primary-light);
 }
 .userCard header figure :is(img, svg) {
-  filter: url('#underglazer');
+  --palette-underglaze: url('#underglazer');
+  
 }
 .userCard header .tier summary {
-  background: var(--color-primary);
+  --palette-ground: var(--color-primary);
 }
-.userCard details.serviceJourney > details[open] > div{
+
+
+.userCard section.serviceJourney > section > div{
       background-color: var(--color-primary);
       background-image: -webkit-linear-gradient(0.35turn,var(--color-secondary), var(--color-primary));
       background-image: -moz-linear-gradient(0.35turn,var(--color-secondary), var(--color-primary));
@@ -506,10 +520,20 @@ i.fas + span {
 .userCard header details.description summary + div h3 {
   color: var(--color-primary-light);
 }
-.userCard section.service .serviceName {
+.userCard section.service .serviceName + label {
   background: var(--color-primary-light);
   filter: drop-shadow(-0.1em 0.3em 0.1em rgba(50, 50, 0, 0.1));
+  height: 2rem;
 }
 .userCard header .tier[open] h4 {
       color: var(--color-primary-light);
+}
+
+
+.userCard footer details[open] {
+  --palette-ground: var(--color-primary-light);
+}
+
+.userCard footer details h3 {
+  --font-color: var(--color-primary-dark);
 }
